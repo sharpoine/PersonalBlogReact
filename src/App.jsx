@@ -7,6 +7,7 @@ import PostDetail from './pages/PostDetail';
 import './App.css'
 import About from './pages/About';
 import Layout from './layout/Layout';
+import Login from './pages/Login';
 
 const NotFound = () => (
   <h1 className='font-architechs'>Böyle bi sayfa yok hacıabi</h1>
@@ -24,7 +25,7 @@ function App() {
           <Route path='/post/:id' element={<PostDetail />} />
           <Route path='/hakkimda' element={<About />} />
         </Route>
-
+        <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
 
       </Routes>
