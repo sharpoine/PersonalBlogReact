@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../App.css'
 import { SideBar } from '../components/SideBar'
 import { Header } from '../components/Header'
@@ -6,7 +6,24 @@ import Post from '../components/Post'
 import Post2 from '../components/Post2'
 import Post3 from '../components/Post3'
 function Home() {
-
+    const [post, setPost] = useState([])
+    const fetchPost = () => {
+        fetch('/api/posts', {
+            method: 'GET',
+            credentials: 'include'
+        })
+            .then(response => response.json())
+            .then(data => {
+                setPost(data)
+                console.log(post)
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+            });
+    }
+    useEffect(() => {
+        fetchPost()
+    }, [])
 
     return (
         <>
@@ -49,10 +66,11 @@ function Home() {
             </div>
             <div className='mt-[40px] mb-[20px]'>
                 <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-1 mt-[40px] mb-[20px] gap-[20px]'>
-                    <Post3 />
-                    <Post3 />
-                    <Post3 />
-                    <Post3 />
+                    {
+                        post.map((item) => (
+                            <Post3 id={item._id} header={item.header} image={item.image} date={new Date(item.date_publish).toLocaleDateString()} />
+                        ))
+                    }
                 </div>
             </div>
         </>
