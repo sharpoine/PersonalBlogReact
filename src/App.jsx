@@ -8,6 +8,9 @@ import './App.css'
 import About from './pages/About';
 import Layout from './layout/Layout';
 import Login from './pages/Login';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify';
+
 
 const NotFound = () => (
   <h1 className='font-architechs'>Böyle bi sayfa yok hacıabi</h1>
@@ -22,14 +25,24 @@ function App() {
 
         <Route path="/" element={<Layout />} >
           <Route index element={<Home />} />
-          <Route path='/post/:id' element={<PostDetail />} />
+          <Route path='/post/:slug' element={<PostDetail />} />
           <Route path='/hakkimda' element={<About />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
 
       </Routes>
-
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
     </BrowserRouter>
   )

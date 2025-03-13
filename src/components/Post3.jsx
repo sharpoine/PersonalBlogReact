@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Post3 = ({header,image,date}) => {
+const Post3 = ({header,image,date,slug}) => {
+
     return (
         <div className='border-[4px] border-black rounded-[20px] border-b-[10px] bg-white'>
             <div className='flex items-center pl-[20px] py-[10px] relative'>
 
-                <a className='flex items-center' href="">
+                <a className='flex items-center' href={`/post/${slug}`}>
                     <img className='w-[17px] h-fit' src="./images/category.png" alt="" />
                     <div className='ml-[10px] font-architechs text-sm'>
                         test
@@ -27,7 +28,7 @@ const Post3 = ({header,image,date}) => {
                 <img className='w-full object-cover border-b-[4px] border-black border-t-0 rounded-tl-[20px] rounded-tr-[20px] min-h-[250px]' 
                 src={`/api${image}`} alt="" />
             </div>
-            <a className='py-[30px] pr-[20px] pl-[35px] block' href="">
+            <a className='py-[30px] pr-[20px] pl-[35px] block' href={`/post/${slug}`}>
                 <div className='text-[#252420] text-xl'>
                     {header}
                 </div>
