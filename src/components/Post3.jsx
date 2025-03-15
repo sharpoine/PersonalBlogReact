@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Post3 = ({header,image,date,slug}) => {
+const Post3 = ({postedBy,header,image,date,slug}) => {
 
     return (
         <div className='border-[4px] border-black rounded-[20px] border-b-[10px] bg-white'>
@@ -9,7 +9,7 @@ const Post3 = ({header,image,date,slug}) => {
                 <a className='flex items-center' href={`/post/${slug}`}>
                     <img className='w-[17px] h-fit' src="./images/category.png" alt="" />
                     <div className='ml-[10px] font-architechs text-sm'>
-                        test
+                        {postedBy}
                     </div>
                 </a>
                 <div className='w-[45px] mx-[10px]'>

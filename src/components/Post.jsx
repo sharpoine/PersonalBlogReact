@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Post = ({ pinned = false, title = false}) => {
+const Post = ({ pinned = false, title = false, image }) => {
     return (
         <div className='border-[4px] border-black rounded-[20px] border-b-[10px] bg-white'>
             <div className='flex items-center pl-[20px] py-[10px] relative'>
@@ -26,7 +26,7 @@ const Post = ({ pinned = false, title = false}) => {
                 </div>
             </div>
             <div className='block w-full'>
-                <img className='h-[300px] object-cover w-full border-y-[4px]  rounded-tl-[20px] rounded-tr-[20px] static border-black' src="/public/images/test.jpg" alt="" />
+                <img className='h-[300px] object-contain w-full border-y-[4px]  rounded-tl-[20px] rounded-tr-[20px] static border-black ' src={image} alt="" />
             </div>
             {title && <a className='py-[30px] pr-[20px] pl-[35px] block' href="/post/1">
                 <div style={{ fontSize: '40px', lineHeight: '40px' }} className='text-[#252420]'>

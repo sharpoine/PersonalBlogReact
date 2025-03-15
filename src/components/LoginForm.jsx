@@ -1,13 +1,13 @@
 import React from 'react'
-
+import bolt from '../../public/images/bolt.png'
 const LoginForm = ({ handleSubmit, setMail, setPassword }) => {
     return (
         <div className='bg-white border-[4px] border-black 
     border-b-[10px] 
     rounded-[30px] mb-[70px]
-    p-[30px] w-[500px] h-[400px]'>
-            <h1 className='mt-0 mb-[20px] font-anton text-4xl'>Giriş</h1>
-            <div className='p-0 gap-[20px] justify-center grid' style={{ gridTemplateColumns: '1fr 1.25fr', gridTemplateRows: 'auto' }}>
+    p-[30px] pr-[20px] w-[560px] h-[350px]'>
+            <h1 className='w-fit mb-[20px] font-anton text-4xl'>Giriş</h1>
+            <div className='p-0 gap-[20px] justify-center grid' style={{ gridTemplateColumns: '1fr 1.5fr', gridTemplateRows: 'auto' }}>
                 <div className='flex flex-col justify-start items-start'>
                     <div className='self-stretch mb-[15px] font-architechs'>
                         <form className='box-border' onSubmit={handleSubmit}>
@@ -28,6 +28,11 @@ const LoginForm = ({ handleSubmit, setMail, setPassword }) => {
                     </div>
                 </div>
 
+
+                <div className='relative'>
+                    <img className='w-[320px] h-[430px] object-cover mt-[-120px] right-0'
+                        src={bolt} alt="" />
+                </div>
             </div>
         </div>
     )

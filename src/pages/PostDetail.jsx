@@ -8,6 +8,7 @@ import Post3 from '../components/Post3'
 import Markdown from "react-markdown";
 import { useParams } from 'react-router-dom'
 import remarkGfm from 'remark-gfm'
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 function PostDetail() {
     const [post, setPost] = useState()
@@ -34,24 +35,24 @@ function PostDetail() {
         console.log(post)
     }, [post])
 
-    return post?(
+    return post ? (
         <>
             <div className='pb-{75px]'>
                 <div className='grid lg:grid-cols-2 gap-[20px] lg:justify-center lg:p-0 grid-cols-1 '>
-                    <div className='relative'><Post pinned /></div>
+                    <div className='relative'><Post image={post.image} pinned /></div>
 
                     <div className='bg-white border-[4px] rounded-[30px] p-[30px] border-black flex flex-col items-start justify-start font-architechs'>
                         <h1 className='mt-0 mb-[20px] text-4xl'>
                             {post.header}
                         </h1>
-                        <Markdown remarkPlugins={[remarkGfm]}>{post.content}</Markdown>
+                        <MarkdownPreview source={post.content} style={{ padding: 16, flex: 1, width: '100%', height: '100%' }} />
                     </div>
                 </div>
             </div>
 
 
         </>
-    ):'loading'
+    ) : 'loading'
 }
 
 export default PostDetail

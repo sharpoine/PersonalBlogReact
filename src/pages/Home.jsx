@@ -70,7 +70,7 @@ function Home() {
                 <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-1 mt-[40px] mb-[20px] gap-[20px]'>
                     {
                         post.map((item) => (
-                            <Post3 slug={item.slug} header={item.header} image={item.image} date={new Date(item.date_publish).toLocaleDateString()} />
+                            <Post3 postedBy={item.user.username} slug={item.slug} header={item.header} image={item.image} date={new Date(item.date_publish).toLocaleDateString()} />
                         ))
                     }
                 </div>
