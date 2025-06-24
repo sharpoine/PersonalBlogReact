@@ -25,7 +25,7 @@ const Post3 = ({postedBy,header,image,date,slug}) => {
                 </div>
             </div>
             <div className='block w-full'>
-                <img className='w-full object-cover border-b-[4px] border-black border-t-0 rounded-tl-[20px] rounded-tr-[20px] min-h-[250px]' 
+                <img className='w-full object-contain border-b-[4px] border-black border-t-0 rounded-tl-[20px] rounded-tr-[20px] h-[250px]' 
                 src={`/api${image}`} alt="" />
             </div>
             <a className='py-[30px] pr-[20px] pl-[35px] block' href={`/post/${slug}`}>

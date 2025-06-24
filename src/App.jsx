@@ -7,11 +7,15 @@ import PostDetail from './pages/PostDetail';
 import './App.css'
 import About from './pages/About';
 import Layout from './layout/Layout';
+import LayoutAdmin from './layout/LayoutAdmin'
 import Login from './pages/Login';
-import Admin from './pages/Admin'
+import CreatePost from './pages/Admin/CreatePost'
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from './context/AuthContext';
+import CreateCategory from './pages/Admin/CreateCategory';
+import AdminRoute from './context/AdminRoute';
+import CategoryPosts from './pages/CategoryPosts';
 
 
 
@@ -31,9 +35,16 @@ function App() {
             <Route index element={<Home />} />
             <Route path='/post/:slug' element={<PostDetail />} />
             <Route path='/hakkimda' element={<About />} />
+            <Route path='/:categorySlug' element={<CategoryPosts />} />
           </Route>
           <Route path='/login' element={<Login />} />
-          <Route path='/admin' element={<Admin />} />
+
+          <Route path='/admin' element={<AdminRoute><LayoutAdmin /></AdminRoute>} >
+
+            <Route path='create-post' element={<CreatePost />} />
+            <Route path='create-category' element={<CreateCategory />} />
+
+          </Route>
           <Route path='*' element={<NotFound />} />
 
         </Routes>

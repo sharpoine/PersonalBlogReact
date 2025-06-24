@@ -2,8 +2,10 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { SideBar } from '../components/SideBar'
+import { useState, useEffect } from 'react'
 
 const Layout = () => {
+    
     return (
         <div className='w-full min-h-full font-anton font-normal grid lg:grid-cols-custom md:grid-cols-.75fr sm:grid-cols-1 px-[20px] mt-[40px] lg:px-0 lg:m-0 justify-center'>
             <SideBar />
@@ -18,7 +20,7 @@ const Layout = () => {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     )
 }

@@ -1,28 +1,48 @@
 import { useEffect, useState } from 'react'
 import '../App.css'
-import { SideBar } from '../components/SideBar'
-import { Header } from '../components/Header'
 import Post from '../components/Post'
 import Post2 from '../components/Post2'
 import Post3 from '../components/Post3'
+import { useInView } from 'react-intersection-observer';
+
 function Home() {
     const [post, setPost] = useState([])
+    const [page, setPage] = useState(1)
+    const [hasMore, setHasMore] = useState(true);
+    const { ref, inView } = useInView();
+
+    useEffect(() => {
+        if (inView && hasMore) {
+            setPage(prev => prev + 1);
+        }
+    }, [inView]);
+
     const fetchPost = () => {
-        fetch('/api/posts', {
+        const params = new URLSearchParams({
+            page: page,
+            limit: 10,
+
+        });
+        fetch(`/api/posts?${params}`, {
             method: 'GET',
             credentials: 'include'
         })
             .then(response => response.json())
             .then(data => {
-                setPost(data)
+
+                if (data.length === 0) {
+                    setHasMore(false);
+                } else {
+                    setPost(prev => [...prev, ...data]);
+                }
             })
             .catch(error => {
-                console.error('Error uploading image:', error);
+                console.error('Error:', error);
             });
     }
     useEffect(() => {
         fetchPost()
-    }, [])
+    }, [page])
     useEffect(() => {
         console.log(post)
     }, [post])
@@ -75,6 +95,7 @@ function Home() {
                     }
                 </div>
             </div>
+            <div ref={ref} style={{ height: 1 }} />
         </>
     )
 }

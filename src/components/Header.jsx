@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
     const [toggleMenu, setToggleMenu] = useState(false)
+    
     return (
         <div className='lg:flex lg:mb-[50px] lg:justify-between lg:items-center block mb-[40px]'>
             <div className='block justify-between items-center lg:mb-0 mb-[20px] '>
@@ -36,7 +38,7 @@ export const Header = () => {
                     '>
                         İletişim
                     </a>
-                    <a href="/" className='text-[#252420] capitalize py-[8px] px-[15px] 
+                    <Link to="/" className='text-[#252420] capitalize py-[8px] px-[15px] 
                     static lg:inline-block text-sm lg:rounded-[50px] 
                     lg:border-[5px] border-black lg:border-b-[6px] 
                     font-architechs lg:mr-[10px]
@@ -45,8 +47,8 @@ export const Header = () => {
                     mr-0
                     block'>
                         Anasayfa
-                    </a>
-                    <a href="/hakkimda" className='text-[#252420] capitalize py-[8px] px-[15px] 
+                    </Link>
+                    <Link to="/hakkimda" className='text-[#252420] capitalize py-[8px] px-[15px] 
                     static lg:inline-block text-sm lg:rounded-[50px] 
                     lg:border-[5px] border-black lg:border-b-[6px] 
                     font-architechs lg:mr-[10px]
@@ -55,7 +57,7 @@ export const Header = () => {
                     mr-0
                     block'>
                         Hakkımda
-                    </a>
+                    </Link>
                 </div>
                 <a href='#' onClick={() => { setToggleMenu(!toggleMenu) }} className={`lg:inline hidden px-[15px] py-[8px] border-[5px] rounded-[50px] border-black bg-[#c9c5b5] border-b-[6px]`}>
                     <img className='w-[30px]' src="/public/images/menu.png" alt="" />
